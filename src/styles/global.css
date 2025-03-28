@@ -1,0 +1,117 @@
+/* Estilos base */
+:root {
+    --background-color: #ffffff;
+    --sidebar-bg: #f6faf9;
+    --text-color: #5e5c64;
+    --highlight-bg: #e5f2ef;
+    --code-bg: #ffffff;
+    --code-text: #333333;
+    --code-header-bg: #e5e5e5;
+    --transition: all 0.3s ease;
+  }
+  
+  /* Modo claro */
+  .light {
+    --background-color: #ffffff;
+    --sidebar-bg: #f6faf9;
+    --text-color: #5e5c64;
+    --highlight-bg: #e5f2ef;
+    --code-bg: #ffffff;
+    --code-text: #333333;
+    --code-header-bg: #e5e5e5;
+  }
+  
+  /* Modo oscuro */
+  .dark {
+    --background-color: #1a1a1a;
+    --sidebar-bg: #2c2c2c;
+    --text-color: #d4d4d4;
+    --highlight-bg: #3a4a4a;
+    --code-bg: #2d2d2d;
+    --code-text: #f8f8f2;
+    --code-header-bg: #3a3a3a;
+  }
+  
+  /* Tamaños de fuente */
+  .font-small {
+    font-size: 14px;
+  }
+  
+  .font-medium {
+    font-size: 16px;
+  }
+  
+  .font-large {
+    font-size: 18px;
+  }
+  
+  /* Desactivar animaciones */
+  .no-animations * {
+    transition: none !important;
+  }
+  
+  body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: var(--transition);
+  }
+  
+  .w-85 {
+    background-color: var(--sidebar-bg);
+    transition: var(--transition);
+  }
+  
+  /* Estilos para los bloques de código */
+  .codeblock-container {
+    background-color: var(--code-bg);
+    border-radius: 0.5rem;
+    transition: var(--transition);
+  }
+  
+  .codeblock-header {
+    background-color: var(--code-header-bg);
+    color: var(--code-text);
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+    border-bottom: 1px solid #4a4a4a;
+    transition: var(--transition);
+  }
+  
+  .codeblock-content {
+    background-color: var(--code-bg);
+    color: var(--code-text);
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    transition: var(--transition);
+  }
+  
+  /* Asegurarnos de que el texto dentro de pre y code también use el color correcto */
+  pre, code {
+    background-color: transparent;
+    color: var(--code-text);
+    transition: var(--transition);
+  }
+  
+  /* Ajustar el mensaje "Copied!" para que sea visible en ambos temas */
+  .codeblock-container .bg-gray-800 {
+    background-color: #4a4a4a;
+    color: #ffffff;
+    transition: var(--transition);
+  }
+  
+  /* Ajustar los botones de control para que sean visibles en ambos temas  :0*/
+  .codeblock-header .text-gray-400 {
+    color: #888888;
+    transition: var(--transition);
+  }
+  
+  .codeblock-header .hover\:text-white:hover {
+    color: #ffffff;
+  }
+  
+  /* Ajustar el texto del nombre del archivo y el mensaje colapsado */
+  .codeblock-header .text-gray-400,
+  .codeblock-content .text-gray-400 {
+    color: #888888;
+    transition: var(--transition);
+  }
