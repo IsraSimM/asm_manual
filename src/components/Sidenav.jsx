@@ -34,7 +34,7 @@ const iconMap = {
   FaBalanceScale,
 };
 
-export default function Sidenav() {
+export default function Sidenav({ isOpen, onClose, navId = 'primary-navigation' }) {
   const location = useLocation();
   const [openSection, setOpenSection] = useState(null);
 
@@ -58,19 +58,34 @@ export default function Sidenav() {
 
   const nasmExamples = examplesData.filter((example) => example.category === 'nasm');
   const nasmGccExamples = examplesData.filter((example) => example.category === 'nasm-gcc');
+  const handleNavigate = () => {
+    if (onClose) {
+      onClose();
+    }
+  };
 
   return (
     <div
-      className="w-85 flex-shrink-0 shadow-lg h-screen fixed top-0 left-0 flex flex-col"
+      id={navId}
+      className={`sidebar shadow-lg ${isOpen ? 'sidebar--open' : ''}`}
       style={{ fontFamily: "'Open Sans', sans-serif" }}
     >
-      <div className="pt-6 px-7">
+      <div className="pt-6 px-7 flex items-center justify-between">
         <h2 className="text-2xl font-bold">Manual ASM</h2>
+        <button
+          type="button"
+          className="menu-close"
+          onClick={onClose}
+          aria-label="Cerrar menu"
+        >
+          X
+        </button>
       </div>
       <nav className="flex-1 mx-6 overflow-y-auto">
         <h6 className="mt-6 mx-4 text-xs uppercase font-bold opacity-60 mb-3">Pages</h6>
         <NavLink
           to="/"
+          onClick={handleNavigate}
           className={({ isActive }) =>
             `flex items-center py-3 px-4 rounded-md mb-4 transition duration-200 ${
               isActive ? 'bg-[var(--highlight-bg)] shadow-lg' : 'hover:bg-[var(--highlight-bg)] hover:shadow-lg'
@@ -86,6 +101,7 @@ export default function Sidenav() {
         <h6 className="mt-6 px-4 text-xs uppercase font-bold opacity-60 mb-3">Requisitos</h6>
         <NavLink
           to="/nasm"
+          onClick={handleNavigate}
           className={({ isActive }) =>
             `flex items-center py-3 px-6 mb-2 rounded-md transition duration-200 ${
               isActive ? 'bg-[var(--highlight-bg)] shadow-lg' : 'hover:bg-[var(--highlight-bg)] hover:shadow-lg'
@@ -99,6 +115,7 @@ export default function Sidenav() {
         </NavLink>
         <NavLink
           to="/nasm-gcc"
+          onClick={handleNavigate}
           className={({ isActive }) =>
             `flex items-center py-3 px-6 rounded-md mb-4 transition duration-200 ${
               isActive ? 'bg-[var(--highlight-bg)] shadow-lg' : 'hover:bg-[var(--highlight-bg)] hover:shadow-lg'
@@ -131,6 +148,7 @@ export default function Sidenav() {
                   <NavLink
                     key={example.id}
                     to={`/${example.id}`}
+                    onClick={handleNavigate}
                     className={({ isActive }) =>
                       `flex items-center py-3 px-4 rounded-md mb-1 transition duration-200 ${
                         isActive ? 'bg-[var(--highlight-bg)] shadow-lg' : 'hover:bg-[var(--highlight-bg)] hover:shadow-lg'
@@ -168,6 +186,7 @@ export default function Sidenav() {
                   <NavLink
                     key={example.id}
                     to={`/${example.id}`}
+                    onClick={handleNavigate}
                     className={({ isActive }) =>
                       `flex items-center py-3 px-4 rounded-md mb-1 transition duration-200 ${
                         isActive ? 'bg-[var(--highlight-bg)] shadow-lg' : 'hover:bg-[var(--highlight-bg)] hover:shadow-lg'
@@ -189,6 +208,7 @@ export default function Sidenav() {
       <div className="mt-auto mx-6 mb-6">
         <NavLink
           to="/about"
+          onClick={handleNavigate}
           className={({ isActive }) =>
             `flex items-center py-3 px-4 rounded-md transition duration-200 ${
               isActive ? 'bg-[var(--highlight-bg)] shadow-lg' : 'hover:bg-[var(--highlight-bg)] hover:shadow-lg'
@@ -202,6 +222,7 @@ export default function Sidenav() {
         </NavLink>
         <NavLink
           to="/settings"
+          onClick={handleNavigate}
           className={({ isActive }) =>
             `flex items-center py-3 px-4 rounded-md transition duration-200 ${
               isActive ? 'bg-[var(--highlight-bg)] shadow-lg' : 'hover:bg-[var(--highlight-bg)] hover:shadow-lg'

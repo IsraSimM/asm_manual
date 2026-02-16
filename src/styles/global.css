@@ -7,6 +7,7 @@
     --code-bg: #ffffff;
     --code-text: #333333;
     --code-header-bg: #e5e5e5;
+    --sidebar-width: 20rem;
     --transition: all 0.3s ease;
   }
   
@@ -54,11 +55,96 @@
     background-color: var(--background-color);
     color: var(--text-color);
     transition: var(--transition);
+    overflow-x: hidden;
   }
   
-  .w-85 {
+  .app-shell {
+    min-height: 100vh;
+  }
+  
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: var(--sidebar-width);
     background-color: var(--sidebar-bg);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 40;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .sidebar--open {
+    transform: translateX(0);
+  }
+  
+  .sidebar-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 30;
+  }
+  
+  .sidebar-overlay--open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  
+  .menu-toggle {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 50;
+    background-color: var(--sidebar-bg);
+    color: var(--text-color);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
     transition: var(--transition);
+  }
+  
+  .menu-close {
+    background: transparent;
+    border: none;
+    color: var(--text-color);
+    font-size: 1rem;
+    line-height: 1;
+    padding: 0.35rem 0.5rem;
+    border-radius: 0.5rem;
+    transition: var(--transition);
+  }
+  
+  .menu-close:hover {
+    background-color: var(--highlight-bg);
+  }
+  
+  .main-content {
+    min-height: 100vh;
+    margin-left: 0;
+    transition: margin-left 0.3s ease;
+  }
+  
+  @media (min-width: 768px) {
+    .sidebar {
+      transform: translateX(0);
+    }
+  
+    .sidebar-overlay,
+    .menu-toggle,
+    .menu-close {
+      display: none;
+    }
+  
+    .main-content {
+      margin-left: var(--sidebar-width);
+      width: calc(100% - var(--sidebar-width));
+    }
   }
   
   /* Estilos para los bloques de código */

@@ -13,31 +13,33 @@ export default function Settings() {
       </h1>
 
       {/* Modo Claro/Oscuro */}
-      <div className="mb-6">
+      <div className="widget-surface mb-6">
         <h2
           className="text-xl font-semibold mb-2"
           style={{ fontFamily: "'Darker Grotesque', sans-serif" }}
         >
           Tema
         </h2>
-        <label className="flex items-center space-x-3">
+        <button
+          type="button"
+          onClick={toggleTheme}
+          className={`widget-toggle ${theme === 'dark' ? 'is-dark' : 'is-light'}`}
+          aria-pressed={theme === 'dark'}
+        >
           <span
-            className="text-lg"
+            className="widget-toggle__label"
             style={{ fontFamily: "'Darker Grotesque', sans-serif" }}
           >
             Modo {theme === 'light' ? 'Claro' : 'Oscuro'}
           </span>
-          <input
-            type="checkbox"
-            checked={theme === 'dark'}
-            onChange={toggleTheme}
-            className="w-6 h-6"
-          />
-        </label>
+          <span className="widget-toggle__track" aria-hidden="true">
+            <span className="widget-toggle__thumb" />
+          </span>
+        </button>
       </div>
 
       {/* Tamaño de Fuente */}
-      <div className="mb-6">
+      <div className="widget-surface mb-6">
         <h2
           className="text-xl font-semibold mb-2"
           style={{ fontFamily: "'Darker Grotesque', sans-serif" }}
@@ -97,7 +99,7 @@ export default function Settings() {
       </div>
 
       {/* Animaciones */}
-      <div className="mb-6">
+      <div className="widget-surface mb-6">
         <h2
           className="text-xl font-semibold mb-2"
           style={{ fontFamily: "'Darker Grotesque', sans-serif" }}

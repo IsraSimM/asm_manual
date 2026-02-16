@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { FaBook, FaFolder, FaCode, FaInfoCircle, FaUser, FaSignInAlt, FaPlus, FaSyncAlt, FaListOl, FaCalculator, FaSquareRootAlt, FaShapes, FaExclamation, FaBalanceScale } from 'react-icons/fa';
 import examplesData from './data/examplesData';
+import WidgetsPanel from './components/WidgetsPanel';
 
 // Mapa de íconos para cada proyecto basado en su ID - Lo que mas se relacionaba :)
 const iconMap = {
@@ -75,7 +76,7 @@ export default function Dashboard() {
 
       {/* Tarjeta principal: ¿Assembly? */}
       <div className="grid grid-cols-1 mb-8 gap-6">
-        <div className="bg-[#f6faf91b] p-6 rounded-lg shadow-md hover:transition duration-200">
+        <div className="widget-surface">
           <div className="flex">
             <div className="flex items-center justify-center h-14 rounded-full px-4 mr-4 shadow-lg" style={{ background: "linear-gradient(310deg, #7928CA 0%, #FF0080 100%)" }}>
               <FaBook className="text-2xl" />
@@ -104,7 +105,7 @@ export default function Dashboard() {
       {/* Tarjetas secundarias */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {/* Requisitos */}
-        <div className="bg-[#f6faf91b] p-6 rounded-lg shadow-md hover:transition duration-200">
+        <div className="widget-surface">
           <div className="flex">
             <div className="flex items-center justify-center h-14 rounded-full px-4 mr-4 shadow-lg" style={{ background: "linear-gradient(310deg, #ea0606 0%, #ff667c 100%)" }}>
               <FaFolder className="text-2xl" />
@@ -130,7 +131,7 @@ export default function Dashboard() {
         </div>
 
         {/* Ejemplos */}
-        <div className="bg-[#f6faf91b] p-6 rounded-lg shadow-md hover:transition duration-200">
+        <div className="widget-surface">
           <div className="flex">
             <div className="flex items-center justify-center h-14 rounded-full px-4 mr-4 shadow-lg" style={{ background: "linear-gradient(310deg, #17ad37 0%, #98ec2d 100%)" }}>
               <FaCode className="text-2xl" />
@@ -156,7 +157,7 @@ export default function Dashboard() {
         </div>
 
         {/* Acerca de */}
-        <div className="bg-[#f6faf91b] p-6 rounded-lg shadow-md hover:transition duration-200">
+        <div className="widget-surface">
           <div className="flex">
             <div className="flex items-center justify-center h-14 rounded-full px-4 mr-4 shadow-lg" style={{ background: "linear-gradient(310deg, #f53939 0%, #fbcf33 100%)" }}>
               <FaInfoCircle className="text-2xl" />
@@ -184,7 +185,7 @@ export default function Dashboard() {
 
       {/* Tarjeta final: Proyectos más recientes - porcentaje de desarrollo actual y autor */}
       <div className="grid grid-cols-1 my-8 gap-6">
-        <div className="bg-[#f6faf91b] p-6 rounded-lg shadow-md">
+        <div className="widget-surface">
           <div className="mb-4">
             <h3 className="text-xl font-semibold" style={{ fontFamily: "'Darker Grotesque', sans-serif" }}>
               Proyectos del Manual

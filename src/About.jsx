@@ -1,5 +1,4 @@
-import { FaFolder, FaCode, FaInfoCircle } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { FaFolder, FaCode, FaInfoCircle, FaGithub } from "react-icons/fa";
 
 export default function AboutUs() {
   return (
@@ -13,7 +12,7 @@ export default function AboutUs() {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {/* Nuestra Misión */}
-        <div className="bg-[#f6faf91b] p-6 rounded-lg shadow-md hover:transition duration-200">
+        <div className="widget-surface">
           <div className="flex">
             <div className="flex items-center justify-center h-14 rounded-full px-4 mr-4 shadow-lg" style={{ background: "linear-gradient(310deg, #ea0606 0%, #ff667c 100%)" }}>
               <FaFolder className="text-2xl" />
@@ -33,7 +32,7 @@ export default function AboutUs() {
         </div>
 
         {/* Nuestro Equipo */}
-        <div className="bg-[#f6faf91b] p-6 rounded-lg shadow-md hover:transition duration-200">
+        <div className="widget-surface">
           <div className="flex">
             <div className="flex items-center justify-center h-14 rounded-full px-4 mr-4 shadow-lg" style={{ background: "linear-gradient(310deg, #17ad37 0%, #98ec2d 100%)" }}>
               <FaCode className="text-2xl" />
@@ -46,20 +45,30 @@ export default function AboutUs() {
                 Somos un grupo de apasionados por la tecnología, comprometidos en ofrecer soluciones innovadoras.
               </p>
               <p className="opacity-80 mt-1" style={{ fontFamily: "'Darker Grotesque', sans-serif" }}>
-                Sin embargo en esta ocasion solo nos acompañó:
+                Sin embargo en esta ocasión solo nos acompañó:
               </p>
-              <p className="opacity-80 mt-1" style={{ fontFamily: "'Darker Grotesque', sans-serif" }}>
+              <p className="opacity-80 mt-1 font-semibold" style={{ fontFamily: "'Darker Grotesque', sans-serif" }}>
                 Israel Simon Martinez
               </p>
               <p className="opacity-80 mt-1" style={{ fontFamily: "'Darker Grotesque', sans-serif" }}>
-                También puedes visitar mi perfil en <a href='https://github.com/IsraSimM' target='_blank' rel='noopener noreferrer' className='text-blue-600 hover:underline'>GitHub</a>.
+                También puedes visitar mi perfil en GitHub:
               </p>
+              <a
+                href="https://github.com/IsraSimM"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="widget-link mt-3"
+                style={{ fontFamily: "'Darker Grotesque', sans-serif" }}
+              >
+                <FaGithub />
+                Ver GitHub
+              </a>
             </div>
           </div>
         </div>
 
         {/* Contáctanos */}
-        <div className="bg-[#f6faf91b] p-6 rounded-lg shadow-md hover:transition duration-200">
+        <div className="widget-surface">
           <div className="flex">
             <div className="flex items-center justify-center h-14 rounded-full px-4 mr-4 shadow-lg" style={{ background: "linear-gradient(310deg, #f53939 0%, #fbcf33 100%)" }}>
               <FaInfoCircle className="text-2xl" />
